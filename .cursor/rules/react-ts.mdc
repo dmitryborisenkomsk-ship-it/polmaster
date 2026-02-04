@@ -1,0 +1,33 @@
+---
+description: Паттерны React и TypeScript в проекте
+globs: src/**/*.ts, src/**/*.tsx
+alwaysApply: false
+---
+
+# React и TypeScript
+
+## Компоненты
+- Только функциональные компоненты и хуки.
+- Пропсы описывать интерфейсом над компонентом или в отдельном типе.
+- Экспорт по умолчанию для страниц и крупных блоков: `export default PageName`.
+
+## Именование
+- Компоненты и страницы: PascalCase.
+- Файлы компонентов/страниц: PascalCase (например, `ProductCard.tsx`, `Catalog.tsx`).
+- Хуки: префикс `use` (например, `useToast`, `use-mobile`).
+
+## Данные и состояние
+- Типы для сущностей (Product, FilterState и т.д.) — в `src/data/` или рядом с компонентом, если используются только там.
+- Для списков и фильтров использовать `useState` + `useMemo` (как в Catalog). Глобальный стор не используется.
+
+## Маршрутизация
+- Внутренние ссылки — `<Link to="...">` из react-router-dom.
+- Якоря на той же странице — `#section-id` и скролл к элементу при необходимости.
+
+## Пример пропсов
+```tsx
+interface ProductCardProps {
+  product: Product;
+}
+const ProductCard = ({ product }: ProductCardProps) => { ... }
+```
